@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cihangir Taşımacılık — Ev, Ofis ve Parça Yük Taşıma | Beyoğlu, İstanbul</title>
+<meta name="description" content="Beyoğlu merkezli nakliyat. Evden eve, ofis taşıma ve parça yük. Şehir içi ve şehirler arası. Ücretsiz keşif, sigortalı taşıma. 0536 786 94 15">
+
+<link rel="icon" href="favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://cihangir-tasimacilik.vercel.app/">
+<meta property="og:title" content="Cihangir Taşımacılık — Ev, Ofis ve Parça Yük Taşıma">
+<meta property="og:description" content="Beyoğlu merkezli nakliyat. Şehir içi ve şehirler arası, sigortalı taşıma. 0536 786 94 15">
+<meta property="og:image" content="https://cihangir-tasimacilik.vercel.app/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="tr_TR">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --ink:#0F1621;
+  --ink-2:#161F2C;
+  --ink-3:#1F2A3A;
+  --gold:#C9A227;
+  --gold-lt:#E8CF7A;
+  --steel:#8794A6;
+  --light:#E6E9ED;
+  --line:rgba(201,162,39,.22);
+  --ok:#4FA96B;
+  --warn:#C9A227;
+  --full:#6B7686;
+  --display:'Archivo',system-ui,sans-serif;
+  --body:'Instrument Sans',system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{
+  background:var(--ink);color:var(--light);
+  font-family:var(--body);font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  padding-bottom:72px;
+  overflow-x:hidden;max-width:100%;
+}
+@media(min-width:820px){body{padding-bottom:0}}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+a{color:inherit}
+
+/* ---------- nav ---------- */
+.nav{
+  position:sticky;top:0;z-index:60;
+  background:rgba(15,22,33,.86);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.nav-in{display:flex;align-items:center;gap:20px;height:60px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;white-space:nowrap}
+.brand img{display:block;width:34px;height:34px;object-fit:contain}
+.brand b{font-family:var(--display);font-weight:900;font-size:14.5px;letter-spacing:.13em;color:var(--gold-lt)}
+.brand span{font-family:var(--display);font-weight:500;font-size:14.5px;letter-spacing:.13em;color:var(--steel);margin-left:6px;display:none}
+@media(min-width:520px){.brand span{display:inline}}
+.nav-links{margin-left:auto;display:none;gap:26px;font-size:13.5px;font-weight:500}
+.nav-links a{text-decoration:none;color:var(--steel);transition:color .18s}
+.nav-links a:hover{color:var(--gold-lt)}
+@media(min-width:820px){.nav-links{display:flex}}
+.lang{
+  margin-left:auto;display:flex;border:1px solid var(--line);border-radius:2px;overflow:hidden;
+  font-family:var(--mono);font-size:11px;letter-spacing:.06em;
+}
+@media(min-width:820px){.lang{margin-left:0}}
+.lang button{
+  background:none;border:0;color:var(--steel);padding:5px 9px;cursor:pointer;font:inherit;transition:.18s;
+}
+.lang button[aria-pressed="true"]{background:var(--gold);color:var(--ink)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.06)}
+/* Hero görseli. Masaüstünde yazının arkasında, mobilde yazının altında
+   kendi 4:3 alanında. Tek kutu, JavaScript yok. Video yüklenmezse
+   poster karesi, o da olmazsa arka plan fotoğrafı görünür. */
+.hero{position:relative;overflow:hidden}
+.hero-media{
+  position:absolute;inset:0;z-index:0;
+  background:var(--ink-2) url("img/hero-poster.jpg") 50% 42%/cover no-repeat;
+}
+.hero-media video{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  object-position:50% 42%;display:block;
+}
+.hero-media::after{
+  content:'';position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:
+    linear-gradient(180deg,rgba(15,22,33,.30) 0%,rgba(15,22,33,.20) 40%,rgba(15,22,33,.92) 100%),
+    linear-gradient(90deg,rgba(15,22,33,.88) 0%,rgba(15,22,33,.55) 45%,rgba(15,22,33,.15) 100%);
+}
+@media(max-width:819px){
+  .hero{display:flex;flex-direction:column;background:linear-gradient(180deg,var(--ink) 0%,var(--ink-2) 100%)}
+  .hero-in{order:1;width:100%;padding:52px 20px 40px}
+  .hero-media{order:2;position:relative;inset:auto;width:100%;aspect-ratio:4/3}
+  .hero-media::after{
+    background:linear-gradient(180deg,rgba(15,22,33,.55) 0%,rgba(15,22,33,0) 22%,
+                               rgba(15,22,33,0) 78%,rgba(15,22,33,.75) 100%);
+  }
+}
+.hero-in{position:relative;z-index:1;padding:76px 0 64px}
+@media(min-width:820px){.hero-in{padding:120px 0 100px;max-width:760px}}
+.eyebrow{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gold);display:flex;align-items:center;gap:10px;margin-bottom:22px;
+}
+.eyebrow::before{content:'';width:26px;height:1px;background:var(--gold)}
+h1{
+  font-family:var(--display);font-weight:900;line-height:.98;letter-spacing:-.02em;
+  font-size:clamp(38px,9vw,74px);text-transform:uppercase;
+}
+h1 em{font-style:normal;color:var(--gold-lt);display:block}
+.hero p{margin-top:22px;font-size:clamp(15.5px,2.4vw,18.5px);color:#C3CBD6;max-width:52ch}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:14px 22px;border-radius:3px;text-decoration:none;
+  font-weight:600;font-size:14.5px;letter-spacing:.01em;
+  transition:transform .16s,background .16s,border-color .16s;
+}
+.btn:active{transform:translateY(1px)}
+.btn-gold{background:var(--gold);color:var(--ink);border:1px solid var(--gold)}
+.btn-gold:hover{background:var(--gold-lt);border-color:var(--gold-lt)}
+.btn-ghost{background:transparent;color:var(--light);border:1px solid rgba(255,255,255,.2)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold-lt)}
+.hero-meta{
+  margin-top:38px;display:flex;flex-wrap:wrap;gap:8px 26px;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.09em;color:var(--steel);text-transform:uppercase;
+}
+
+/* ---------- section shell ---------- */
+.sec{padding:64px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+@media(min-width:820px){.sec{padding:96px 0}}
+.sec-head{margin-bottom:34px}
+.sec-head h2{
+  font-family:var(--display);font-weight:900;text-transform:uppercase;letter-spacing:-.01em;
+  font-size:clamp(26px,5vw,42px);line-height:1.02;
+}
+.sec-head p{color:var(--steel);margin-top:12px;max-width:56ch;font-size:15.5px}
+
+/* ---------- route board (signature) ---------- */
+.board{border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--ink-2)}
+.board-top{
+  display:flex;align-items:center;gap:10px;padding:12px 16px;
+  background:var(--ink-3);border-bottom:1px solid var(--line);
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--steel);
+}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px rgba(79,169,107,.16)}
+@media(prefers-reduced-motion:no-preference){.dot{animation:pulse 2.4s ease-in-out infinite}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.row{
+  display:grid;grid-template-columns:1fr auto;gap:6px 14px;
+  padding:16px;border-bottom:1px solid rgba(255,255,255,.055);
+  transition:background .18s;
+}
+.row:last-child{border-bottom:0}
+.row:hover{background:rgba(201,162,39,.04)}
+@media(min-width:720px){
+  .row{grid-template-columns:92px 1fr 130px auto;align-items:center;padding:18px 16px}
+}
+.r-date{font-family:var(--mono);font-size:12.5px;color:var(--gold);letter-spacing:.04em;font-weight:700}
+.r-route{display:flex;align-items:center;gap:11px;font-family:var(--display);font-weight:700;font-size:16.5px;letter-spacing:.02em;text-transform:uppercase}
+.r-line{flex:1;min-width:22px;height:1px;background:linear-gradient(90deg,var(--gold),rgba(201,162,39,.15));position:relative}
+.r-line::after{content:'';position:absolute;right:-1px;top:-2px;width:5px;height:5px;border-radius:50%;background:var(--gold)}
+.r-note{font-size:13px;color:var(--steel);grid-column:1/-1}
+@media(min-width:720px){.r-note{grid-column:auto;font-size:12.5px}}
+.pill{
+  justify-self:start;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+  padding:5px 10px;border-radius:2px;border:1px solid;white-space:nowrap;
+}
+@media(min-width:720px){.pill{justify-self:end}}
+.p-ok{color:var(--ok);border-color:rgba(79,169,107,.4);background:rgba(79,169,107,.08)}
+.p-warn{color:var(--gold-lt);border-color:var(--line);background:rgba(201,162,39,.08)}
+.p-full{color:var(--full);border-color:rgba(107,118,134,.3)}
+.board-note{margin-top:14px;font-size:13px;color:var(--steel)}
+
+/* ---------- form ---------- */
+.form-grid{display:grid;gap:14px}
+@media(min-width:720px){.form-grid{grid-template-columns:1fr 1fr}}
+.field{display:flex;flex-direction:column;gap:7px}
+.field.wide{grid-column:1/-1}
+label{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--steel)}
+input,select,textarea{
+  background:var(--ink-2);border:1px solid rgba(255,255,255,.11);border-radius:3px;
+  color:var(--light);padding:13px 14px;font-family:var(--body);font-size:15.5px;
+  transition:border-color .18s;width:100%;
+}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold)}
+select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--steel) 50%),linear-gradient(135deg,var(--steel) 50%,transparent 50%);background-position:calc(100% - 19px) 50%,calc(100% - 14px) 50%;background-size:5px 5px;background-repeat:no-repeat}
+.form-foot{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:6px}
+.form-hint{font-size:12.5px;color:var(--steel);max-width:40ch}
+
+/* ---------- services ---------- */
+.cards{display:grid;gap:14px}
+@media(min-width:720px){.cards{grid-template-columns:repeat(3,1fr)}}
+.card{
+  border:1px solid rgba(255,255,255,.09);border-radius:4px;padding:26px 22px;background:var(--ink-2);
+  transition:border-color .2s,transform .2s;
+}
+.card:hover{border-color:var(--line);transform:translateY(-2px)}
+.card{padding:0;overflow:hidden}
+.card-shot{
+  height:172px;background-size:cover;background-position:50% 45%;
+  border-bottom:1px solid rgba(255,255,255,.08);position:relative;
+}
+.card-shot::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(15,22,33,.10) 0%,rgba(15,22,33,.55) 100%);
+}
+.card-body{padding:24px 22px 26px}
+.card h3{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:19px;letter-spacing:.01em;margin-bottom:10px}
+.card p{color:var(--steel);font-size:14.5px}
+.card ul{list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:7px}
+.card li{font-size:13.5px;color:#AEB8C6;padding-left:16px;position:relative}
+.card li::before{content:'';position:absolute;left:0;top:9px;width:6px;height:1px;background:var(--gold)}
+
+/* ---------- trust ---------- */
+.trust{display:grid;gap:26px}
+@media(min-width:720px){.trust{grid-template-columns:repeat(4,1fr)}}
+.t-item h4{font-family:var(--display);font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.05em;color:var(--gold-lt);margin-bottom:8px}
+.t-item p{font-size:14px;color:var(--steel)}
+
+.band{
+  min-height:300px;display:flex;align-items:flex-end;
+  background-image:url('img/bongo-bayrak.jpg');
+  background-size:cover;background-position:50% 58%;
+  border-bottom:1px solid rgba(255,255,255,.06);position:relative;
+}
+.band::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(15,22,33,.72) 0%,rgba(15,22,33,.22) 45%,rgba(15,22,33,.88) 100%);
+}
+.band-in{position:relative;z-index:1;padding:0 20px 34px}
+.band-in p{
+  font-family:var(--display);font-weight:700;text-transform:uppercase;
+  font-size:clamp(15px,2.6vw,22px);letter-spacing:.02em;max-width:24ch;line-height:1.25;
+}
+@media(min-width:820px){.band{min-height:420px}}
+
+/* ---------- footer ---------- */
+footer{padding:52px 0 40px;font-size:14px;color:var(--steel)}
+.f-grid{display:grid;gap:30px}
+@media(min-width:720px){.f-grid{grid-template-columns:1.4fr 1fr 1fr}}
+.f-grid h5{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.f-grid a{text-decoration:none;transition:color .18s}
+.f-grid a:hover{color:var(--gold-lt)}
+.f-logo{display:block;width:230px;max-width:100%;height:auto;margin-bottom:24px}
+.f-tel{font-family:var(--mono);font-size:19px;color:var(--light);letter-spacing:.02em}
+.f-bot{margin-top:38px;padding-top:22px;border-top:1px solid rgba(255,255,255,.07);font-size:12.5px;display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-between}
+
+/* ---------- mobile call bar ---------- */
+.callbar{
+  position:fixed;left:0;right:0;bottom:0;z-index:70;display:flex;
+  background:var(--ink-2);border-top:1px solid var(--line);
+}
+@media(min-width:820px){.callbar{display:none}}
+.callbar a{
+  flex:1;text-align:center;padding:17px 8px;text-decoration:none;font-weight:600;font-size:14.5px;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.callbar a:first-child{border-right:1px solid rgba(255,255,255,.09);color:var(--light)}
+.callbar a:last-child{background:var(--gold);color:var(--ink)}
+
+/* ---------- scroll reveal ---------- */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top">
+      <img src="ctt-amblem.png" alt="" width="34" height="34">
+      <b>CİHANGİR</b><span>TAŞIMACILIK</span>
+    </a>
+    <div class="nav-links">
+      <a href="#rotalar" data-i18n="nav1">Yaklaşan Rotalar</a>
+      <a href="#teklif" data-i18n="nav2">Teklif Al</a>
+      <a href="#hizmetler" data-i18n="nav3">Hizmetler</a>
+      <a href="#iletisim" data-i18n="nav4">İletişim</a>
+    </div>
+    <div class="lang">
+      <button data-lang="tr" aria-pressed="true">TR</button>
+      <button data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-media">
+    <video autoplay muted loop playsinline preload="auto" poster="img/hero-poster.jpg"
+           aria-label="Cihangir Taşımacılık aracı, Beyoğlu">
+      <source src="img/hero.mp4" type="video/mp4">
+      <source src="img/hero.webm" type="video/webm">
+    </video>
+  </div>
+  <div class="wrap hero-in">
+    <div class="eyebrow" data-i18n="eyebrow">Beyoğlu · İstanbul</div>
+    <h1><span data-i18n="h1a">Ev, ofis,</span><em data-i18n="h1b">parça yük</em></h1>
+    <p data-i18n="heroP">Cihangir'in dar sokaklarından Türkiye'nin dört bir yanına. Şehir içi ve şehirler arası taşıma, sigortalı ve zamanında.</p>
+    <div class="cta-row">
+      <a class="btn btn-gold" href="tel:+905367869415" data-i18n="ctaCall">Hemen ara</a>
+      <a class="btn btn-ghost" href="#teklif" data-i18n="ctaQuote">Ücretsiz teklif al</a>
+    </div>
+    <div class="hero-meta">
+      <span data-i18n="m1">Ücretsiz keşif</span>
+      <span data-i18n="m2">Sigortalı taşıma</span>
+      <span data-i18n="m3">Ambalaj dahil</span>
+      <span lang="en" data-i18n="m4">English spoken</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ROTA PANOSU -->
+<section class="sec" id="rotalar">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2 data-i18n="s1h">Yaklaşan Rotalar</h2>
+      <p data-i18n="s1p">Bu tarihlerde zaten yoldayız. Aynı güzergâhta yükünüz varsa maliyeti paylaşır, çok daha uygun taşırız.</p>
+    </div>
+
+    <div class="board rv">
+      <div class="board-top">
+        <span class="dot"></span>
+        <span id="board-month"></span>
+      </div>
+
+      <div id="routes">
+        <div class="row"><div class="r-note" data-i18n="loading">Rotalar yükleniyor…</div></div>
+      </div>
+    </div>
+    <p class="board-note" data-i18n="boardNote">Listede olmayan bir güzergâh mı lazım? Arayın, çoğu zaman ayarlayabiliyoruz.</p>
+  </div>
+</section>
+
+<!-- TEKLİF -->
+<section class="sec" id="teklif">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2 data-i18n="s2h">Teklif Al</h2>
+      <p data-i18n="s2p">Doldurun, WhatsApp'tan size dönelim. Genelde bir saat içinde fiyat veriyoruz.</p>
+    </div>
+
+    <div class="form-grid rv">
+      <div class="field">
+        <label for="from" data-i18n="lFrom">Nereden</label>
+        <input id="from" placeholder="Cihangir, Beyoğlu">
+      </div>
+      <div class="field">
+        <label for="to" data-i18n="lTo">Nereye</label>
+        <input id="to" placeholder="Alsancak, İzmir">
+      </div>
+      <div class="field">
+        <label for="date" data-i18n="lDate">Tarih</label>
+        <input id="date" type="date">
+      </div>
+      <div class="field">
+        <label for="type" data-i18n="lType">Ne taşınacak</label>
+        <select id="type">
+          <option data-i18n="o1">1+1 daire</option>
+          <option data-i18n="o2">2+1 daire</option>
+          <option data-i18n="o3">3+1 ve üzeri</option>
+          <option data-i18n="o4">Ofis</option>
+          <option data-i18n="o5">Parça yük / birkaç koli</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="lift" data-i18n="lLift">Asansör durumu</label>
+        <select id="lift">
+          <option data-i18n="e1">İki tarafta da asansör var</option>
+          <option data-i18n="e2">Sadece bir tarafta var</option>
+          <option data-i18n="e3">Asansör yok</option>
+          <option data-i18n="e4">Bilmiyorum</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="tel" data-i18n="lTel">Telefonunuz</label>
+        <input id="tel" type="tel" inputmode="tel" placeholder="05xx xxx xx xx">
+      </div>
+      <div class="form-foot">
+        <a class="btn btn-gold" id="send" href="#" data-i18n="ctaSend">WhatsApp'tan gönder</a>
+        <span class="form-hint" data-i18n="formHint">Bilgiler hazır mesaj olarak WhatsApp'a aktarılır, göndermeden önce kontrol edebilirsiniz.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HİZMETLER -->
+<section class="sec" id="hizmetler">
+  <div class="wrap">
+    <div class="sec-head rv"><h2 data-i18n="s3h">Hizmetler</h2></div>
+    <div class="cards rv">
+      <div class="card">
+        <div class="card-shot" style="background-image:url('img/ducato-arka.jpg')"></div>
+<div class="card-body">        <h3 data-i18n="c1h">Evden Eve</h3>
+        <p data-i18n="c1p">Sökme, ambalajlama, taşıma ve kurulum. Dar sokak ve asansörsüz bina bizim işimiz.</p>
+        <ul>
+          <li data-i18n="c1a">Mobilya sökme ve kurma</li>
+          <li data-i18n="c1b">Balonlu naylon, karton, streç</li>
+          <li data-i18n="c1c">Asansörlü taşıma imkânı</li>
+        </ul></div>
+      </div>
+      <div class="card">
+        <div class="card-shot" style="background-image:url('img/ducato-on.jpg')"></div>
+<div class="card-body">        <h3 data-i18n="c2h">Ofis Taşıma</h3>
+        <p data-i18n="c2p">Hafta sonu ve mesai dışı çalışırız, pazartesi ofisiniz çalışır durumda olur.</p>
+        <ul>
+          <li data-i18n="c2a">Numaralandırılmış koli sistemi</li>
+          <li data-i18n="c2b">Bilgisayar ve ekran ambalajı</li>
+          <li data-i18n="c2c">Arşiv ve dosya taşıma</li>
+        </ul></div>
+      </div>
+      <div class="card">
+        <div class="card-shot" style="background-image:url('img/bongo-sokak.jpg')"></div>
+<div class="card-body">        <h3 data-i18n="c3h">Parça Yük</h3>
+        <p data-i18n="c3p">Tek koliden yarım araca kadar. Planlı rotalarımıza denk gelirse çok daha uygun.</p>
+        <ul>
+          <li data-i18n="c3a">Şehirler arası parsiyel</li>
+          <li data-i18n="c3b">Beyaz eşya ve tekli mobilya</li>
+          <li data-i18n="c3c">E-ticaret ve mağaza sevkiyatı</li>
+        </ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GÜVEN -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head rv"><h2 data-i18n="s4h">Neden CTT</h2></div>
+    <div class="trust rv">
+      <div class="t-item">
+        <h4 data-i18n="t1h">Ücretsiz keşif</h4>
+        <p data-i18n="t1p">Gelip yerinde bakarız. Fiyat keşiften sonra netleşir, sürpriz çıkmaz.</p>
+      </div>
+      <div class="t-item">
+        <h4 data-i18n="t2h">Sigortalı taşıma</h4>
+        <p data-i18n="t2p">Eşyalarınız taşıma süresince sigorta kapsamındadır.</p>
+      </div>
+      <div class="t-item">
+        <h4 data-i18n="t3h">Kendi araçlarımız</h4>
+        <p data-i18n="t3p">Taşımayı taşerona vermeyiz. Aracı da ekibi de siz tanırsınız.</p>
+      </div>
+      <div class="t-item">
+        <h4 data-i18n="t4h">Beyoğlu'nu biliriz</h4>
+        <p data-i18n="t4p">Dar sokak, park sorunu, asansörsüz bina. Nereye ne sığar biliyoruz.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="band" aria-label="Cihangir Taşımacılık aracı, Beyoğlu sokakları">
+  <div class="band-in wrap">
+    <p data-i18n="bandTxt">Cihangir, Çukurcuma, Galata, Kasımpaşa. Bu sokaklarda her gün çalışıyoruz.</p>
+  </div>
+</section>
+</main>
+
+<footer id="iletisim">
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <img class="f-logo" src="ctt-logo.png" alt="Cihangir Taşımacılık Transport" width="230">
+        <h5 data-i18n="fh1">İletişim</h5>
+        <a class="f-tel" href="tel:+905367869415">0536 786 94 15</a>
+        <p style="margin-top:10px" data-i18n="fAddr">Beyoğlu, İstanbul<br>Her gün 08:00 – 20:00</p>
+      </div>
+      <div>
+        <h5 data-i18n="fh2">Hizmet Bölgesi</h5>
+        <p data-i18n="fArea">İstanbul geneli<br>Ankara · İzmir · Bursa<br>Kocaeli · Eskişehir · Muğla</p>
+      </div>
+      <div>
+        <h5 data-i18n="fh3">Takip Edin</h5>
+        <p><a href="https://instagram.com/ctt_transport" target="_blank" rel="noopener">Instagram · @ctt_transport</a></p>
+        <p style="margin-top:6px"><a href="https://wa.me/905367869415" target="_blank" rel="noopener">WhatsApp</a></p>
+      </div>
+    </div>
+    <div class="f-bot">
+      <span>© 2026 Cihangir Taşımacılık Transport</span>
+      <span data-i18n="fSlogan">Türkiye'nin dört bir yanına güvenle taşıyoruz</span>
+    </div>
+  </div>
+</footer>
+
+<div class="callbar">
+  <a href="tel:+905367869415" data-i18n="barCall">Ara</a>
+  <a href="https://wa.me/905367869415" target="_blank" rel="noopener" data-i18n="barWa">WhatsApp</a>
+</div>
+
+<script type="module">
+// ---- Supabase projesinden al: Settings → API ----
+const SUPABASE_URL  = 'https://XXXXXXXX.supabase.co';
+const SUPABASE_ANON = 'XXXXXXXX';
+
+const MONTHS = { tr:['OCA','ŞUB','MAR','NİS','MAY','HAZ','TEM','AĞU','EYL','EKİ','KAS','ARA'],
+                 en:['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'] };
+const PILL = { available:['p-ok','Yer var','Space'],
+               limited:  ['p-warn','Az yer kaldı','Limited'],
+               full:     ['p-full','Dolu','Full'] };
+
+window.stampMonth = function(lang = document.documentElement.lang || 'tr'){
+  const el = document.getElementById('board-month');
+  if (!el) return;
+  const now = new Date();
+  const names = { tr:['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz',
+                      'Ağustos','Eylül','Ekim','Kasım','Aralık'],
+                  en:['January','February','March','April','May','June','July',
+                      'August','September','October','November','December'] };
+  el.textContent = (lang === 'en' ? 'Live · ' : 'Güncel · ')
+                 + names[lang][now.getMonth()] + ' ' + now.getFullYear();
+};
+stampMonth();
+
+window.renderRoutes = function(lang = document.documentElement.lang || 'tr'){
+  const rows = window.__routes;
+  const box = document.getElementById('routes');
+  if (!rows) return;
+  if (!rows.length){
+    box.innerHTML = `<div class="row"><div class="r-note">${
+      lang === 'en' ? 'No scheduled routes right now — call us and we will arrange one.'
+                    : 'Şu an planlı rota yok — arayın, ayarlayalım.'}</div></div>`;
+    return;
+  }
+  box.innerHTML = rows.map(r => {
+    const d = new Date(r.depart_on + 'T00:00:00');
+    const [cls, tr, en] = PILL[r.status] || PILL.available;
+    return `<div class="row">
+      <div class="r-date">${String(d.getDate()).padStart(2,'0')} ${MONTHS[lang][d.getMonth()]}</div>
+      <div class="r-route">${r.origin} <span class="r-line"></span> ${r.destination}</div>
+      <div class="r-note">${r.note ? String(r.note).replace(/[<>]/g,'') : ''}</div>
+      <div class="pill ${cls}">${lang === 'en' ? en : tr}</div>
+    </div>`;
+  }).join('');
+};
+
+(async () => {
+  try {
+    const res = await fetch(
+      `${SUPABASE_URL}/rest/v1/ctt_routes?select=*&order=depart_on.asc&limit=6`,
+      { headers: { apikey: SUPABASE_ANON, Authorization: `Bearer ${SUPABASE_ANON}` } });
+    if (!res.ok) throw new Error(res.status);
+    window.__routes = await res.json();
+  } catch {
+    window.__routes = [];
+  }
+  window.renderRoutes();
+})();
+</script>
+
+<script>
+const PHONE = '905367869415';
+
+/* WhatsApp teklif mesajı */
+const val = id => (document.getElementById(id).value || '—').trim();
+const txt = id => { const s = document.getElementById(id); return s.options[s.selectedIndex].text; };
+
+function buildLink(){
+  const L = document.documentElement.lang === 'en'
+    ? ['Quote request','From','To','Date','Load','Elevator','Phone']
+    : ['Teklif talebi','Nereden','Nereye','Tarih','Taşınacak','Asansör','Telefon'];
+  const msg =
+    `*${L[0]}*\n` +
+    `${L[1]}: ${val('from')}\n` +
+    `${L[2]}: ${val('to')}\n` +
+    `${L[3]}: ${val('date')}\n` +
+    `${L[4]}: ${txt('type')}\n` +
+    `${L[5]}: ${txt('lift')}\n` +
+    `${L[6]}: ${val('tel')}`;
+  return `https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`;
+}
+document.getElementById('send').addEventListener('click', e => {
+  e.preventDefault();
+  window.open(buildLink(), '_blank', 'noopener');
+});
+
+
+
+
+/* Eksik görsel varsa konsola açıkça yaz. */
+window.addEventListener('error', e => {
+  const t = e.target;
+  if (t && t.tagName === 'IMG')
+    console.error('BULUNAMADI →', t.getAttribute('src'),
+                  '| bu dosyanın index.html’e göre bu yolda olması gerekiyor');
+}, true);
+
+/* Scroll reveal */
+if ('IntersectionObserver' in window){
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
+  },{threshold:.12});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+} else {
+  document.querySelectorAll('.rv').forEach(el=>el.classList.add('in'));
+}
+
+/* TR / EN */
+const EN = {
+  nav1:'Upcoming Routes', nav2:'Get a Quote', nav3:'Services', nav4:'Contact',
+  eyebrow:'Beyoğlu · Istanbul',
+  h1a:'Home, office,', h1b:'part loads',
+  heroP:"From the narrow streets of Cihangir to anywhere in Türkiye. Local and intercity moves, insured and on time.",
+  ctaCall:'Call now', ctaQuote:'Get a free quote',
+  m1:'Free survey', m2:'Insured', m3:'Packing included', m4:'English spoken',
+  loading:'Loading routes…',
+  s1h:'Upcoming Routes',
+  s1p:"We're already on the road on these dates. If your load fits the same route, we share the cost and it comes out far cheaper.",
+  boardNote:'Need a route that is not listed? Call us — we can usually arrange it.',
+  s2h:'Get a Quote', s2p:"Fill this in and we'll reply on WhatsApp. We usually price within an hour.",
+  lFrom:'From', lTo:'To', lDate:'Date', lType:'What are we moving', lLift:'Elevator', lTel:'Your phone',
+  o1:'1-bed flat', o2:'2-bed flat', o3:'3-bed and larger', o4:'Office', o5:'Part load / a few boxes',
+  e1:'Elevator at both ends', e2:'Elevator at one end only', e3:'No elevator', e4:"Don't know",
+  ctaSend:'Send on WhatsApp',
+  formHint:'Your details go to WhatsApp as a ready message — you can check it before sending.',
+  s3h:'Services',
+  c1h:'Home Moves', c1p:'Dismantling, packing, transport and reassembly. Narrow streets and walk-ups are our normal.',
+  c1a:'Furniture taken apart and rebuilt', c1b:'Bubble wrap, cartons, stretch film', c1c:'External lift available',
+  c2h:'Office Moves', c2p:'We work weekends and after hours so you are running again on Monday.',
+  c2a:'Numbered box system', c2b:'Computers and screens packed', c2c:'Archives and files',
+  c3h:'Part Loads', c3p:'One box to half a truck. If it fits a planned route, it costs much less.',
+  c3a:'Intercity part loads', c3b:'Single appliances and furniture', c3c:'E-commerce and shop deliveries',
+  s4h:'Why CTT',
+  t1h:'Free survey', t1p:'We come and look first. The price is fixed after that — no surprises.',
+  t2h:'Insured', t2p:'Your belongings are covered for the whole journey.',
+  t3h:'Our own vans', t3p:'We do not subcontract. You meet the van and the crew.',
+  t4h:'We know Beyoğlu', t4p:'Narrow streets, nowhere to park, no elevator. We know what fits where.',
+  fh1:'Contact', fAddr:'Beyoğlu, Istanbul<br>Every day 08:00 – 20:00',
+  fh2:'Areas We Cover', fArea:'All of Istanbul<br>Ankara · Izmir · Bursa<br>Kocaeli · Eskişehir · Muğla',
+  fh3:'Follow', fSlogan:'Carrying safely across Türkiye',
+  bandTxt:'Cihangir, Çukurcuma, Galata, Kasımpaşa. We work these streets every day.',
+  barCall:'Call', barWa:'WhatsApp'
+};
+const TR = {};
+document.querySelectorAll('[data-i18n]').forEach(el=>{ TR[el.dataset.i18n] = el.innerHTML; });
+
+document.querySelectorAll('.lang button').forEach(b=>{
+  b.addEventListener('click', ()=>{
+    const lang = b.dataset.lang;
+    const dict = lang === 'en' ? EN : TR;
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el=>{
+      if (dict[el.dataset.i18n]) el.innerHTML = dict[el.dataset.i18n];
+    });
+    document.querySelectorAll('.lang button').forEach(x=>x.setAttribute('aria-pressed', x===b));
+    if (window.renderRoutes) window.renderRoutes(lang);
+    if (window.stampMonth) window.stampMonth(lang);
+  });
+});
+</script>
+</body>
+</html>
